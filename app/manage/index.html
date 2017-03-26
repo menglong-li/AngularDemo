@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="myApp">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<title>管理中心</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/base.min.css" />
+
+</head>
+<body>
+<div id="Header"><h1><a href="index.html">管理中心</a></h1></div>
+<div ng-include="'header.html'" ng-controller="Header" onload="side()" ng-cloak></div>
+
+	<div id="Content">
+		<div class="cont_head"><h2>首页</h2></div>
+		<div id="bread">
+			<a href="index.html" class="active"><i class="icon-home"></i>首页</a>
+		</div>
+
+		<div id="Main">
+			<div class="form-cont form-horizontal index-table">
+				<div class="form-group">
+					<label class="control-label col-sm-2">框架版本</label>
+					<div class="col-sm-2">ThinkPHP5.0.3</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2">服务环境</label>
+					<div class="col-sm-8">Apache/Linux</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2">PHP版本</label>
+					<div class="col-sm-8">5.5</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2">QQ咨询</label>
+					<div class="col-sm-8">116938310</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2">状态</label>
+					<div class="col-sm-2"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/main.min.js"></script>
+</body>
+</html>

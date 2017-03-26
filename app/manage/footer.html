@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="myApp">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<title>管理中心</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/base.min.css" />
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/kindeditor/kindeditor-all.js"></script>
+
+	<script type="text/javascript" src="js/main.min.js"></script>
+	<script type="text/javascript" src="js/angular-kindeditor.js"></script>
+</head>
+<body>
+	<div id="Header"><h1><a href="index.html">管理中心</a></h1></div>
+	<div id="User_nav">
+		<ul>
+			<li>
+				<a class="dropdown">管理员 <b class="caret"></b></a>
+				<ul>
+					<li><a href="javascript:;">修改密码</a></li>
+				</ul>
+			</li>
+			<li><a href="javascript:;">技术支持</a></li>
+			<li><a href="javascript:;">退出</a></li>
+		</ul>
+	</div>
+	<div id="Sidebar">
+		<a class="side_visible">页底信息</a>
+		<ul class="sidebarFirst">
+			<li>
+				<label class="active">网站设置<span>3</span></label>
+				<ul>
+					<li><a href="seo.html">引擎优化</a></li>
+					<li><a href="banner.html">广告位</a></li>
+					<li><a href="footer.html" class="active">页底信息</a></li>
+				</ul>
+			</li>
+			<li><a href="about.html">企业简介</a></li>
+			<li><a href="product.html">产品中心</a></li>
+			<li><a href="news.html">新闻中心</a></li>
+			<li><a href="message.html">在线留言</a></li>
+			<li><a href="contact.html">联系我们</a></li>
+		</ul>
+	</div>
+	<div id="Content">
+		<div class="cont_head"><h2>页底信息</h2></div>
+		<div id="bread">
+			<a href="index.html"><i class="icon-home"></i>首页</a>
+			<a href="javascript:;">网站设置</a>
+			<a href="javascript:;" class="active">页底信息</a>
+		</div>
+
+		<div id="Main">
+			<form class="form-horizontal" name="form" ng-controller="footerEdit" ng-submit="edit(form.$valid)">
+				<div class="form-cont form-horizontal" ng-controller='footerGet'>
+					<div class="form-group">
+						<label class="control-label col-sm-2">内容</label>
+						<div class="col-sm-10">
+							<textarea class="form-control editor keditor" id="editor" ng-model="content" name="content"></textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10 col-xs-offset-2">
+							<input type="submit"  class="btn btn-success" value="保存" ng-disabled="!content || form.$invalid">
+							<a class="btn btn-warning" href="index.html">取消</a>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	
+	</div>
+
+<!--script-->
+<script type="text/javascript" src="webset/footer.js"></script>
+<script>
+
+</script>
+</body>
+</html>

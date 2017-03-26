@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="myApp">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<title>管理中心</title>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css" />
+	<link rel="stylesheet" type="text/css" href="../css/base.min.css" />
+</head>
+<body ng-controller="seo_add">
+<div id="Header"><h1><a href="index.html">管理中心</a></h1></div>
+<div ng-include="'../header.html'" ng-controller="Header" onload="side()" ng-cloak></div>
+
+<div id="Content">
+	<div class="cont_head"><h2>引擎优化</h2></div>
+	<div id="bread">
+		<a href="../index.html"><i class="icon-home"></i>首页</a>
+		<a>网站设置</a>
+		<a href="index.html" class="active">引擎优化</a>
+	</div>
+
+<div id="Main">
+	<form class="form-horizontal" name="form" ng-controller="form">
+		<div class="form-cont form-horizontal">
+			<div class="form-group">
+				<label class="control-label col-sm-2">所属模块</label>
+				<div class="col-sm-2">
+					<select class="form-control" ng-model="seo.tid" ng-init="seo.tid='0'">
+						<option value="0">首页</option>
+						<option value="1">企业简介</option>
+						<option value="2">产品中心</option>
+						<option value="3">新闻中心</option>
+						<option value="4">在线留言</option>
+						<option value="5">联系我们</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">标题</label>
+				<div class="col-sm-8" ng-class="{'has-error' : form.title.$invalid && form.title.$touched}">
+					<input type="text" class="form-control" name="title" ng-model="seo.title" placeholder="标题" ng-value="seo.title" required>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">关键词</label>
+				<div class="col-sm-8">
+					<textarea class="form-control" placeholder="关键词，允许多个关键词，请用逗号(,)隔开" ng-model="seo.keys"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">描述</label>
+				<div class="col-sm-8">
+					<textarea class="form-control" placeholder="描述" ng-model="seo.desc"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">状态</label>
+				<div class="col-sm-2">
+					<select class="form-control" ng-model="seo.state" ng-init="seo.state='1'">
+					<option value="1">开启</option>
+					<option value="0">关闭</option>
+				</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10 col-xs-offset-2">
+					<input type="submit" id="add" value="保存" class="btn btn-success" ng-click="add()" ng-disabled="form.$invalid">
+					<input type="submit" id="edit" value="修改" class="btn btn-primary" ng-click="edit()" ng-disabled="form.$invalid">
+					<a href="index.html" class="btn btn-warning">取消</a>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+</div>
+
+<!--script-->
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/main.min.js"></script>
+<script type="text/javascript" src="../js/angular.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/app.js"></script>
+<script type="text/javascript" src="ng.js"></script>
+</body>
+</html>

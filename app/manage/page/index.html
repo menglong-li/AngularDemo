@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<title>管理中心</title>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css" />
+	<link rel="stylesheet" type="text/css" href="../css/base.min.css" />
+</head>
+<body ng-controller="index">
+	
+<table class="table table-bordered">
+	<thead>
+		<tr class="row head">
+			<td class="col-xs-1"><input type="checkbox" ng-model="cheall" ng-click="checkall(cheall)"></td>
+			<td class="col-xs-6">标题</td>
+			<td class="col-xs-2">所属</td>
+			<td class="col-xs-1">状态</td>
+			<td class="col-xs-2">操作</td>
+		</tr>
+	</thead>
+	<tr class="row" ng-repeat="x in list">
+		<td class="col-xs-1"><input type="checkbox" ng-checked="cheall" ng-model="z" ng-click="checlick(z,$index)"></td>
+		<td class="col-xs-6 text-left" ng-bind="x.title"></td>
+		<td class="col-xs-2" ng-bind="type[x.tid]"></td>
+		<td class="col-xs-1" ng-bind="states[x.state]"></td>
+		<td class="col-xs-2"><a class="btn btn-xs btn-info" href="add.html?s={{x.id}}">Edit</a><button class="btn  btn-xs btn-danger" ng-click="delete($index)">Delete</button></td>
+	</tr>
+</table>
+
+<div class="pagebar">
+	<div class="col-xs-1 page-checkbox"><input class="vm" type="checkbox" name="all" ng-model="cheall" ng-click="checkall(cheall)"></div>
+	<div class="page-btn">
+		<button class="btn btn-sm btn-danger" ng-click="delall()">删除</button>
+		<button class="btn btn-sm btn-success" ng-click="onall()">开启</button>
+		<button class="btn btn-sm btn-warning" ng-click="offall()">关闭</button>
+	</div>
+	<div class="page">
+		<my-page conf="pageconf"></my-page>
+	</div>
+</div>
+
+
+
+
+
+<!--script-->
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/main.min.js"></script>
+<script type="text/javascript" src="../js/angular.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="../js/app.js"></script>
+
+<script type="text/javascript" src="../js/indexlist.js"></script>
+<script type="text/javascript" src="ng-page.js"></script>
+<script type="text/javascript" src="ml.page.js"></script>
+</body>
+</html>

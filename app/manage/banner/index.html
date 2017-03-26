@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="myApp">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<title>管理中心</title>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css" />
+	<link rel="stylesheet" type="text/css" href="../css/base.min.css" />
+
+</head>
+<body ng-controller="index">
+<div id="Header"><h1><a href="index.html">管理中心</a></h1></div>
+<div ng-include="'../header.html'" ng-controller="Header" onload="side()" ng-cloak></div>
+
+
+<div id="Content">
+	<div class="cont_head"><h2>引擎优化</h2></div>
+	<div id="bread">
+		<a href="../index.html"><i class="icon-home"></i>首页</a>
+		<a href="javascript:;">网站设置</a>
+		<a href="javascript:;" class="active">引擎优化</a>
+	</div>
+
+	<div id="Main">
+		<div class="searchbar">
+			<select class="form-control">
+				<option value="0">查询范围</option>
+				<option value="1">标题</option>
+				<option value="2">内容</option>
+				<option value="3">标题+内容</option>
+			</select>
+			<input type="text" name="search" class="form-control" placeholder="输入关键字">
+			<button class="btn btn-default">搜索</button>
+			
+			<div><a href="add.html" class="btn btn-success"><i class="icon-white icon-add"></i>添加信息</a></div>
+		</div>
+
+		<table class="table table-bordered">
+			<thead>
+				<tr class="row head">
+					<td class="col-xs-1"><input type="checkbox" ng-model="cheall" ng-click="checlick(cheall)"></td>
+					<td class="col-xs-6">标题</td>
+					<td class="col-xs-2">所属</td>
+					<td class="col-xs-1">状态</td>
+					<td class="col-xs-2">操作</td>
+				</tr>
+			</thead>
+			<tr class="row" ng-repeat="x in list">
+				<td class="col-xs-1"><input type="checkbox" ng-model="x.cbox" ng-checked="cheall" ng-true-value="{{x.id}}"></td>
+				<td class="col-xs-6 text-left" ng-bind="x.title"></td>
+				<td class="col-xs-2" ng-bind="type[x.tid]"></td>
+				<td class="col-xs-1" ng-bind="state[x.state]"></td>
+				<td class="col-xs-2"><a class="btn btn-xs btn-info" href="add.html?s={{x.id}}">Edit</a><button class="btn  btn-xs btn-danger" ng-click="delete(x.id)">Delete</button></td>
+			</tr>
+		</table>
+		
+		<div class="pagebar">
+			<div class="pagebar-left">
+				<input type="checkbox" name="all">
+				<button class="btn btn-sm btn-danger" ng-click="delall()">删除</button>
+				<button class="btn btn-sm btn-success" ng-click="onall()">开启</button>
+				<button class="btn btn-sm btn-warning" ng-click="offall()">关闭</button>
+			</div>
+			<div class="pagebar-right">
+				<ul class="pagination">
+					<li class="disabled"><a>上一页</a></li>
+					<li class="active"><a href="">1</a></li>
+					<li><a href="">2</a></li>
+					<li><a href="">3</a></li>
+					<li><a href="">4</a></li>
+					<li><a href="">5</a></li>
+					<li><a href="">6</a></li>
+					<li><a href="">7</a></li>
+					<li><a href="">8</a></li>
+					<li><a href="">下一页</a></li>
+				</ul>
+			</div>
+		</div>
+		
+	</div>
+
+</div>
+
+<!--script-->
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/main.min.js"></script>
+<script type="text/javascript" src="../js/angular.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/app.js"></script>
+<script type="text/javascript" src="ng.js"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Document</title>
+	<!-- 以下两个插件用于在IE8以及以下版本浏览器支持HTML5元素和媒体查询，如果不需要用可以移除 -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+    	
+    </style>
+</head>
+<script>
+console.log(0.1 + 0.2 === 0.3);
+console.log("11" -2 + "1");
+console.log("11"+2+"1");
+console.log(11 + + "2" - "1");
+console.log(typeof "" === "string");
+console.log(typeof [] === "array");
+console.log(typeof new Number(123));
+console.log(typeof 123);
+console.log("hello" instanceof String);
+console.log(["item1","item2"] instanceof Array);
+
+var json = [{ID:1,scode:89,name:"哈哈"},{ID:2,scode:11,name:"哈哈2"}];
+var html = "";
+for(var i=0;i<json.length;i++)
+{
+	for(var j in json)
+	{
+		console.log(j+"----"+json[j]);
+	}
+	
+}
+function b(x,y,a) {
+	arguments[2] = 10;
+	console.log(a);
+}
+b(1,2,3);
+
+var f = (function f() {
+	return '1';
+},function g(){
+	return 2;
+})();
+console.log(typeof f);
+
+var abc = "global_var";
+(function(){
+	console.log(typeof abc);
+	console.log(typeof fun_1);
+	console.log(typeof fun_2);
+	var abc = "local_var";
+	function fun_1(){}
+	var fun_2 = function (){};
+	console.log(typeof abc);
+	console.log(typeof fun_1);
+	console.log(typeof fun_2);
+})(window);
+
+console.log("------------------------------");
+
+var foo = {
+	bar:function(){
+		return this.baz;
+	},
+	baz:1
+};
+
+console.log(typeof (f = foo.bar)());
+
+var a = {n:1}
+var b = a;
+a.x = a ={n:2}
+console.log(a);
+console.log(b);
+</script>
+
+<style>
+	.box{ display:flex; flex-direction: row;}
+	.box .item:nth-child(1){ background: #FF0; flex: 0;}
+	.box .item:nth-child(2){ background: #0F0; flex: 1; }
+
+	.text{ width: 200px; height: 200px; background: #ff0; 
+	text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;}
+</style>
+<body>
+<div style=" clear:both; overflow: hidden;">
+	<div style=" float:left; width:100%; background: #FF0;">
+		<div style=" margin-left:200px;">aaaaaaaaaaaaaaaa</div>
+	</div>
+	<div style=" float:left; width:200px; background: #0F0; margin-left: -100%;">1</div>
+	<div style=" float:left; width:100px; background: #0FF; margin-left: -100%;">222</div>
+</div>
+<div class="box">
+	<div class="item">1111</div>
+	<div class="item">222222222</div>
+</div>
+
+<div class="text">啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</div>
+</body>
+</html>

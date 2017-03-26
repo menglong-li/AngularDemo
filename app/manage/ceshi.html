@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		window.onload = function() {
+			function foo(){
+				this.a = 4;
+			}
+			foo.prototype.z = 3;
+
+			var obj = new foo();
+			//obj.x = 1;
+			//obj.y = 2;
+			//obj.a = 6;
+
+			console.log(obj.a);
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
